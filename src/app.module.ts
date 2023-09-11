@@ -3,17 +3,18 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './users/entities/user.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mssql',
-      host: '172.17.112.1',
+      host: '192.168.2.54',
       port: 1433,
       username: 'sa',
       password: 'nome_1234',
       database: 'mssqldb',
-      entities: [],
+      entities: [User],
       synchronize: true,
       options: { trustServerCertificate: true },
     }),
